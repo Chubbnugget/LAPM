@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LAPM - Landscaping</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+        <img src="images/logo.png" alt="LAPM Landscaping" class="logo-img">
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="#">Home  <i class="fas fa-regular fa-house"></i></a></li>
+        <li><a href="#">Gallery  <i class="fas fa-regular fa-image"></i></a></li>
+        <li><a href="#contact">Contact Us  <i class="fas fa-regular fa-handshake"></i></a></li>
+        <li><a href="#"><i class="fas fa-search"></i></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="left-column">
+    <img 
+        src="images/grass-tall-1.jpg" 
+        alt="Tall grass landscaping example" 
+        class="left-sidebar-image" 
+        loading="lazy"
+    />
+    <p class="slide-subtitle">
+        Creating beautiful, functional outdoor spaces in the Southern Highlands and Illawarra.
+    </p>
+    <p class="slide-description">
+        With years of local experience, we specialise in retaining walls, decks, garden design, paving, lawn care and seasonal maintenance.  
+        Whether you're in Bowral, Moss Vale, Wollongong, Kiama or surrounds, we understand the unique challenges of highlands frost, coastal winds and sloped terrain.
+    </p>
+    <p class="slide-description" style="margin-top: 1.5rem;">
+        Quality workmanship • Reliable service • Free quotes
+    </p>
+    </div>
+
+    <div class="right-column">
+      <div class="cards-grid">
+        <div class="card">
+          <img src="images/Grass-wide-1.jpg" alt="Thing1" loading="lazy"/>
+          <div class="card-label">Thing1</div>
+        </div>
+        <div class="card">
+          <img src="images/Grass-wide-1.jpg" alt="Thing2" loading="lazy"/>
+          <div class="card-label">Thing2</div>
+        </div>
+        <div class="card">
+          <img src="images/Grass-wide-1.jpg" alt="Thing3" loading="lazy"/>
+          <div class="card-label">Thing3</div>
+        </div>
+        <div class="card">
+          <img src="images/Grass-wide-1.jpg" alt="Thing4" loading="lazy"/>
+          <div class="card-label">Thing4</div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+    <section class="contact-section">
+    <h1 id="contact">Get a Free Quote</h1>
+    <p class="contact-subtitle">
+        Ready to transform your outdoor space in the Southern Highlands or Illawarra?  
+        Fill out the form below or call us directly. We usually reply within 24 hours.
+    </p>
+
+    <form action="https://api.web3forms.com/submit" method="POST" class="contact-form">
+        <!-- Hidden access key – get this from https://web3forms.com -->
+        <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+
+        <div class="form-group">
+        <label for="name">Your Name *</label>
+        <input type="text" id="name" name="name" placeholder="John Smith" required>
+        </div>
+
+        <div class="form-group">
+        <label for="email">Email Address *</label>
+        <input type="email" id="email" name="email" placeholder="your@email.com" required>
+        </div>
+
+        <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" placeholder="04XX XXX XXX">
+        </div>
+
+        <div class="form-group">
+        <label for="suburb">Suburb / Area</label>
+        <input type="text" id="suburb" name="suburb" placeholder="e.g., Bowral, Wollongong, Kiama">
+        </div>
+
+        <div class="form-group">
+        <label for="message">Project Details / Message *</label>
+        <textarea id="message" name="message" rows="6" placeholder="e.g., Need a retaining wall for sloped backyard in Moss Vale, or quote for deck in Shellharbour..." required></textarea>
+        </div>
+
+        <!-- Honeypot spam trap – leave empty -->
+        <input type="text" name="_gotcha" style="display:none">
+
+        <button type="submit" class="submit-btn">Send Message</button>
+    </form>
+
+    <p class="contact-info">
+        Or call us directly: <strong>04XX XXX XXX</strong><br>
+        Email: <a href="mailto:sales@lapm-landscaping.com">sales@lapm-landscaping.com</a>
+    </p>
+    </section>
+
+    <div id="scroll-down-arrow" class="scroll-arrow">
+    <i class="fas fa-chevron-down"></i>
+    </div>
+
+    <script>
+        const arrow = document.getElementById('scroll-down-arrow');
+
+        if (arrow) {
+            // Show/hide logic (keep your existing condition or use this simple one)
+            window.addEventListener('scroll', () => {
+            if (window.scrollY < 500) {
+                arrow.classList.add('visible');
+            } else {
+                arrow.classList.remove('visible');
+            }
+            });
+
+            // Click → smooth scroll to the top of "Get a Free Quote" heading
+            arrow.addEventListener('click', () => {
+            const quoteSection = document.querySelector('.contact-section h1');
+            if (quoteSection) {
+                const offset = quoteSection.getBoundingClientRect().top + window.scrollY - 80; // 80px above heading for breathing room
+                window.scrollTo({
+                top: offset,
+                behavior: 'smooth'
+                });
+            } else {
+                // Fallback: scroll down ~80vh if heading not found
+                window.scrollBy({
+                top: window.innerHeight * 0.8,
+                behavior: 'smooth'
+                });
+            }
+            });
+
+            // Trigger initial visibility check
+            window.dispatchEvent(new Event('scroll'));
+        }
+    </script>
+</body>
+</html>
